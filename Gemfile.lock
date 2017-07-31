@@ -203,6 +203,7 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.4)
+  rake
   sass-rails (~> 5.0)
   shopify_app
   spring
