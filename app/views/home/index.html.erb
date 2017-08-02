@@ -10,9 +10,23 @@
 <% end %>
 
 <h2> Products</h2>
-
-<ul>
+<div class="container">
+<div class="row">
   <% @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+  
+   <% if product.image.present? %> 
+    <div class="col-md-3">
+    <%= link_to  (image_tag product.try(:image).try(:src) ,:height=>"200",:width=>"200"), "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %>
+
+     <div class="row">
+      <strong><%=product.title%></strong><br/>
+      <strong>Rs.&nbsp;&nbsp;<strike><%=product.variants.first.compare_at_price%></strike></strong>&nbsp;&nbsp;
+       <strong>Rs.&nbsp;&nbsp;<%=product.variants.first.price%></strong>
+   </div>
+   </div>
   <% end %>
-</ul>
+
+  <% end %>
+  </div>
+</div>
+
