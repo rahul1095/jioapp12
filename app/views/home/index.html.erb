@@ -16,8 +16,8 @@
   
    <% if product.image.present? %> 
     <div class="col-md-3">
-     <%#= link_to  (image_tag product.try(:image).try(:src) ,:height=>"200",:width=>"200"), "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %>
-       <%=  (image_tag product.try(:image).try(:src) ,:height=>"200",:width=>"200") %>
+     <%= link_to  (image_tag product.try(:image).try(:src) ,:height=>"200",:width=>"200"), "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %>
+       <%#= link_to (image_tag product.try(:image).try(:src) ,:height=>"200",:width=>"200"),home_path(product)  %>
 
 
      <div class="row">
