@@ -20,3 +20,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+application.yml
+secrets.yml
+shopify_app.rb
+
+
