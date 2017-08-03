@@ -55,6 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'shopify_app'
 gem 'rake'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "figaro"
+
 # gem 'rails_12factor', group: :production
 
 
