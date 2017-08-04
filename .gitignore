@@ -23,5 +23,5 @@
 application.yml
 secrets.yml
 shopify_app.rb
-
+temp.html.erb
 

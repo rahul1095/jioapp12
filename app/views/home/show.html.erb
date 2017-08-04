@@ -1,0 +1,83 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="pad">
+<div class="container">
+<hr/>
+<div class="row">
+ <div class="col-md-4">
+<%=image_tag @product.try(:image).try(:src) ,:height=>"220",:width=>"220",:class=>"thumbnail zoom"%><br/>
+</div>
+ <div class="col-md-8">
+<h2><strong><%=@product.title%></strong></h2>
+      <strong>Rs.&nbsp;&nbsp;<strike><%=@product.variants.first.compare_at_price%></strike></strong>&nbsp;&nbsp;
+
+       <strong>Rs.&nbsp;&nbsp;<%=@product.variants.first.price%></strong><br/><br/>
+       <h4><strong><%=@product.body_html%></strong></h4>
+                  
+     <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+     <a href="https://twitter.com/" class="fa fa-twitter"></a>
+     <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
+     </div>
+</div>
+</div>
+
+
+<style type="text/css">
+.zoom {      
+-webkit-transition: all 0.35s ease-in-out;    
+-moz-transition: all 0.35s ease-in-out;    
+transition: all 0.35s ease-in-out;     
+cursor: -webkit-zoom-in;      
+cursor: -moz-zoom-in;      
+cursor: zoom-in;  
+}  
+
+.zoom:hover,  
+.zoom:active,   
+.zoom:focus {
+/**adjust scale to desired size, 
+add browser prefixes**/
+-ms-transform: scale(2.5);    
+-moz-transform: scale(2.5);  
+-webkit-transform: scale(2.5);  
+-o-transform: scale(2.5);  
+transform: scale(2.5);    
+position:relative;      
+z-index:75;  
+} 
+
+.pad
+{
+	 padding-top: 3cm;
+}  
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 2px;
+ 
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+</style>

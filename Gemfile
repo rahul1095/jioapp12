@@ -60,3 +60,7 @@ gem "figaro"
 # gem 'rails_12factor', group: :production
 
 
+gem 'apipie-rails'
+gem "better_errors"
+gem "binding_of_caller"
+
