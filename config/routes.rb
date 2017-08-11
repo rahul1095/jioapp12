@@ -29,4 +29,12 @@ Rails.application.routes.draw do
     # AppProxy::ReviewsController#index, for example
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+
+ namespace :api, :defaults => { :format => 'json' } do
+    namespace :v1 do
+      resources :home 
+      end
+    end
+
+  end
+

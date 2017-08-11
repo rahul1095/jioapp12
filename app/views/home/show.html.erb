@@ -1,15 +1,20 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<script src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
 <div class="pad">
 <div class="container">
 <hr/>
 <div class="row">
  <div class="col-md-4">
  <%if @product.images.present?%>
+    <div class="xzoom-thumbs">
+    <ul class="bxslider">
     <% @product.images.each do |product|%>
-    <%=image_tag product.try(:src) ,:height=>"220",:width=>"220",:class=>"thumbnail zoom"%><br/>
+    <li><%=image_tag product.try(:src) ,:height=>"300",:width=>"300",:class=>"xzoom-gallery"%></li>
 <%end%>
+</ul>
+</div>
 <%end%>
 </div>
  <div class="col-md-8">
@@ -18,16 +23,17 @@
 
        <strong>Rs.&nbsp;&nbsp;<%=@product.variants.first.price%></strong><br/><br/>
        <h4><strong><%=@product.body_html%></strong></h4>           
-     <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
-     <a href="https://twitter.com/" class="fa fa-twitter"></a>
-     <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
+     <a href="https://facebook.com/share", target = "_blank" class="fa fa-facebook"></a>
+     <a href="https://twitter.com/share", target = "_blank" class="fa fa-twitter"></a>
+     <a href="https://www.pinterest.com/share", target = "_blank" class="fa fa-pinterest"></a>
      </div>
 </div>
 </div>
 
 
+<div class="fb-share-button" data-href="http://localhost:3000/" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&amp;src=sdkpreparse">Share</a></div>
 <style type="text/css">
-.zoom {      
+/*.zoom {      
 -webkit-transition: all 0.35s ease-in-out;    
 -moz-transition: all 0.35s ease-in-out;    
 transition: all 0.35s ease-in-out;     
@@ -41,15 +47,130 @@ cursor: zoom-in;
 .zoom:focus {
 /**adjust scale to desired size, 
 add browser prefixes**/
--ms-transform: scale(2.5);    
+/*-ms-transform: scale(2.5);    
 -moz-transform: scale(2.5);  
 -webkit-transform: scale(2.5);  
 -o-transform: scale(2.5);  
 transform: scale(2.5);    
 position:relative;      
 z-index:75;  
-} 
+} */
+xzoom-source img, .xzoom-preview img, .xzoom-lens img {
+  display: block;
+  max-width: none;
+  max-height: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 
+
+}
+/* --------------- */
+
+/* xZoom Styles below */
+.xzoom-container { 
+
+  display: inline-block;
+}
+
+.xzoom-thumbs {
+
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.xzoom { 
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);  
+}
+.xzoom2, .xzoom3, .xzoom4, .xzoom5 {
+  
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+/* Thumbs */
+.xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 {
+  border: 1px solid #cecece;
+  margin-left: 5px;
+  margin-bottom: 10px;
+
+}
+
+.xzoom-source, .xzoom-hidden {
+  display: block;
+  position: static;
+  float: none;
+  clear: both;
+
+}
+
+/* Everything out of border is hidden */
+.xzoom-hidden {
+  overflow: hidden;
+
+}
+
+/* Preview */
+.xzoom-preview {
+
+  border: 1px solid #888;
+  background: #2f4f4f;
+  box-shadow: -0px -0px 10px rgba(0,0,0,0.50);
+}
+
+/* Lens */
+.xzoom-lens {
+
+  border: 1px solid #555;
+  box-shadow: -0px -0px 10px rgba(0,0,0,0.50);
+  cursor: crosshair;
+}
+
+/* Loading */
+.xzoom-loading {
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  opacity: .7;
+  background: url(../images/xloading.gif);
+  width: 48px;
+  height: 48px;
+
+}
+
+/* Additional class that applied to thumb when it is active */
+.xactive {
+  
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+  box-shadow: 0px 0px 3px 0px rgba(74,169,210,1); 
+  border: 1px solid #4aaad2;
+}
+
+/* Caption */
+.xzoom-caption {
+  position: absolute;
+  bottom: -43px;
+  left: 0;
+  background: #000;
+  width: 100%;
+  text-align: left;
+}
+
+.xzoom-caption span {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: block;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 10px;
+}
 .pad
 {
 	 padding-top: 3cm;
@@ -84,3 +205,34 @@ z-index:75;
 }
 
 </style>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+
+
+jQuery(function() {
+  $("a.fancybox").fancybox();
+});
+
+
+</script>
+
+<script type="text/javascript">
+  
+$(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15  });
+
+  </script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1962237564022190";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
