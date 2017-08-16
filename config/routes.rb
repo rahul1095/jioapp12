@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   apipie
-  root :to => 'app_proxy#collection'
+  root :to => 'home#index'
   resources :home
   mount ShopifyApp::Engine, at: '/'
 
