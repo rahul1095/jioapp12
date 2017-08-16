@@ -4,13 +4,8 @@ Rails.application.routes.draw do
   resources :home
   mount ShopifyApp::Engine, at: '/'
 
-   # post '/collection' =>'app_proxy#collection'
-
-  post 'collection', to: :show, controller: 'app_proxy'
-  
+   post 'collection', to: :show, controller: 'app_proxy'
   namespace :app_proxy do
-    collection do
-
     root action: 'index'
     end
  # resources :ShopifyMultipass
