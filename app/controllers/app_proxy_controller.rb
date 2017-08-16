@@ -5,4 +5,8 @@ class AppProxyController < ApplicationController
     render layout: false, content_type: 'application/liquid'
   end
 
+  def collection
+    puts "*****************************#{params.inspect}"
+  end	
+
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :home
   mount ShopifyApp::Engine, at: '/'
 
+  post '/collection' =>'home#collection'
   namespace :app_proxy do
     root action: 'index'
     end
