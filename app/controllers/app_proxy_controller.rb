@@ -7,6 +7,7 @@ class AppProxyController < ApplicationController
 
   def collection
     puts "*****************************#{params.inspect}"
+     puts "hello how are u"
   end	
 
 end
