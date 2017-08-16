@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   apipie
-  root :to => 'home#index'
+  root :to => 'app_proxy#collection'
   resources :home
   mount ShopifyApp::Engine, at: '/'
 
-   post 'collection', to: :show, controller: 'app_proxy'
+  post '/collection' =>'app_proxy#collection'
   namespace :app_proxy do
     root action: 'index'
     end
