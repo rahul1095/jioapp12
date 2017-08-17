@@ -6,14 +6,15 @@ class AppProxyController < ApplicationController
   end
 
   def product_create
-   Home.create(gather: params)
-   # respond_with(@products.to_json(:include => [:title, :variants.first.compare_at_price, :body_html]), :location => home_path)
-   render json:{ status:200}
+   @home=Home.create(gather: params)
+   # respond_with(@home.to_json)
+   render json:{ status:200 }
   end   
 
-  def product_update
-    
-  end
+  # def product_update
+  #  # home=Home.where("gather ->> 'id' == '#{params[:id]}'")
+  #  #  home.create(gather: params)
+  # end
 
   def collection_create
     puts "#{params.inspect}"
