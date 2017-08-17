@@ -6,13 +6,11 @@ class AppProxyController < ApplicationController
   end
 
   def product_create
-    puts "*****************************#{params.inspect}"
-    puts "hello, how are u"
+    Home.create(gather: params[:product])
   end   
 
   def product_update
-    puts "*****************************#{params.inspect}"
-    puts "hello, how are u"
+    
       
   end
 
