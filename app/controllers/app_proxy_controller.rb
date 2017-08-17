@@ -6,7 +6,8 @@ class AppProxyController < ApplicationController
   end
 
   def product_create
-   @home=Home.create(gather: params)
+   Home.create(gather: params)
+   logger.debug "this is heroku path"
    # respond_with(@home.to_json)
    render json:{ status:200 }
   end   
