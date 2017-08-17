@@ -11,7 +11,7 @@ class AppProxyController < ApplicationController
   end   
 
   def product_update
-    # puts "#{params.inspect}" 
+     puts "helo i am rahul" 
   end
 
   def collection_create
