@@ -5,9 +5,27 @@ class AppProxyController < ApplicationController
     render layout: false, content_type: 'application/liquid'
   end
 
-  def collection
+  def product_create
     puts "*****************************#{params.inspect}"
-     puts "hello how are u"
-  end	
+    puts "hello, how are u"
+  end   
+
+  def product_update
+    puts "*****************************#{params.inspect}"
+    puts "hello, how are u"
+      
+  end
+
+  def collection_create
+    puts "*****************************#{params.inspect}"
+     puts "hello, how are u"
+      
+  end
+
+  def collection_update
+    puts "*****************************#{params.inspect}"
+     puts "hello, how are u"
+      
+  end				
 
 end
