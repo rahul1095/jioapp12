@@ -10,14 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731112257) do
+ActiveRecord::Schema.define(version: 20170814092808) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "collects", force: :cascade do |t|
+    t.json     "collecting"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.json     "gather"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "data"
+  end
 
   create_table "shops", force: :cascade do |t|
     t.string   "shopify_domain", null: false
     t.string   "shopify_token",  null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
+    t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true, using: :btree
   end
 
 end
