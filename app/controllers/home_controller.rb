@@ -1,4 +1,5 @@
 class HomeController < ShopifyApp::AuthenticatedController
+  skip_before_filter  :verify_authenticity_token
   def index
     @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
     # @products.each do |product|
