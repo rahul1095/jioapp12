@@ -7,15 +7,18 @@ class AppProxyController < ApplicationController
 
   def product_create
    Home.create(gather: params)
-   logger.debug "this is heroku path"
+   # logger.debug "this is heroku path"
    # respond_with(@home.to_json)
+
+  logger.debug "This is from debug"
+  logger.info "This is from info"
    render json:{ status:200 }
   end   
 
-  # def product_update
-  #  # home=Home.where("gather ->> 'id' == '#{params[:id]}'")
-  #  #  home.create(gather: params)
-  # end
+  def product_update
+   # home=Home.where("gather ->> 'id' == '#{params[:id]}'")
+   #  home.create(gather: params)
+  end
 
   def collection_create
     puts "#{params.inspect}"
