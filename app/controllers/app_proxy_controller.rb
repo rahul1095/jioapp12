@@ -12,6 +12,7 @@ class AppProxyController < ApplicationController
 
   logger.debug "This is from debug"
   logger.info "This is from info"
+  puts "check for testing"
    render json:{ status:200 }
   end   
 
