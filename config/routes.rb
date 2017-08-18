@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :home
   mount ShopifyApp::Engine, at: '/'
 
-  post '/product_create' =>'app_proxy#product_create'
-  post '/collection_create' =>'app_proxy#collection_create'
-  post '/product_update' =>'app_proxy#product_update'
-  post '/collection_update' =>'app_proxy#collection_update'
+  post '/product_create' =>'home#product_create'
+  post '/collection_create' =>'home#collection_create'
+  post '/product_update' =>'home#product_update'
+  post '/collection_update' =>'home#collection_update'
   namespace :app_proxy do
     root action: 'index'
     end
